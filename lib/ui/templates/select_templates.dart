@@ -42,7 +42,7 @@ class SelectTemplateUI extends StatelessWidget {
     try {
       return Container(
           child: Row(
-        children: [_templates()],
+        children: [_templates(), _preview()],
       ));
     } catch (error) {
       return SizedBox.shrink();
@@ -51,39 +51,71 @@ class SelectTemplateUI extends StatelessWidget {
 
   Widget _templates() {
     try {
+      const List<String> templateNames = [
+        'Toronto',
+        'Stockholm',
+        'New York',
+        'Vienna',
+        'Sydeny',
+        'London',
+        'Dublin',
+        'Moscow',
+        'Madrid',
+        'Amsterdam',
+        'Santiago',
+        'Singapore'
+      ];
       return Container(
         decoration: BoxDecoration(color: Color(0xFF495162)),
         width: 350,
         height: 800,
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: GridView.builder(
-          itemCount: 20,
+          itemCount: templateNames.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.75,
+              childAspectRatio: 0.70,
               crossAxisCount: 2,
               crossAxisSpacing: 0,
               mainAxisSpacing: 5),
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(color: Colors.transparent),
-              child: Column(
-                children: [
-                  Text(
-                    'Toronto',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Container(
-                      height: 175,
-                      width: 125,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Colors.white))
-                ],
+            return MouseRegion(
+              onHover: (event) {
+                print(templateNames[index]);
+              },
+              child: Container(
+                margin: EdgeInsets.all(5),
+                decoration: BoxDecoration(color: Colors.transparent),
+                child: Column(
+                  children: [
+                    Text(
+                      templateNames[index],
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(height: 10),
+                    Container(
+                        height: 175,
+                        width: 140,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.white))
+                  ],
+                ),
               ),
             );
           },
         ),
+      );
+    } catch (error) {
+      return SizedBox.shrink();
+    }
+  }
+
+  Widget _preview() {
+    try {
+      return Container(
+        decoration: BoxDecoration(color: Color(0xFF495162)),
+        width: 1100,
+        height: 800,
       );
     } catch (error) {
       return SizedBox.shrink();
