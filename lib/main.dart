@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:resumebuilder/ui/templates/select_templates.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'bloc/common/bloc_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SelectTemplateUI(),
-    );
+    return MultiBlocProvider(
+        providers: multiBlocProvider(context),
+        child: Builder(
+            builder: (_) => MaterialApp(home: TemplatePreviewSelector())));
   }
 }
 
