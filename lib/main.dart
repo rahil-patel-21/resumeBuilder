@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resumebuilder/utils/device_config.dart';
 import 'bloc/common/bloc_provider.dart';
 
 void main() {
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DeviceConfig.initialize(context);
     return MultiBlocProvider(
         providers: multiBlocProvider(context),
         child: Builder(
@@ -34,7 +36,7 @@ class TemplatePreviewSelector extends StatelessWidget {
                 Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width / 2,
-                    color: Color(0xFF656e83)),
+                    color: const Color(0xFF656e83)),
               ],
             )));
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:resumebuilder/ui/custom_widgets/empty_box.dart';
 
 class SelectTemplateUI extends StatelessWidget {
   @override
@@ -34,7 +35,7 @@ class SelectTemplateUI extends StatelessWidget {
             ],
           ));
     } catch (error) {
-      return const SizedBox.shrink();
+      return EmptyBox();
     }
   }
 
@@ -45,7 +46,7 @@ class SelectTemplateUI extends StatelessWidget {
         children: [_templates(), _preview()],
       ));
     } catch (error) {
-      return SizedBox.shrink();
+      return EmptyBox();
     }
   }
 
@@ -106,7 +107,7 @@ class SelectTemplateUI extends StatelessWidget {
         ),
       );
     } catch (error) {
-      return SizedBox.shrink();
+      return EmptyBox();
     }
   }
 
@@ -118,7 +119,7 @@ class SelectTemplateUI extends StatelessWidget {
         height: 800,
       );
     } catch (error) {
-      return SizedBox.shrink();
+      return EmptyBox();
     }
   }
 }
