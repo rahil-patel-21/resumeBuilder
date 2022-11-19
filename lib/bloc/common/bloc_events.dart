@@ -3,9 +3,9 @@ import 'package:resumebuilder/bloc/template_selection/template_selection_bloc.da
 import 'package:resumebuilder/bloc/template_selection/template_selection_event.dart';
 import 'package:resumebuilder/globals.dart';
 
-class BlocEvents {
+class BlocEvent {
   // Template Card Selection
   static TemplateSelectionBloc templateSelectionContext = gContext.read();
-  static updateTemplateCardOnHover() =>
-      templateSelectionContext.add(UpdateCardOnHover('', true));
+  static updateTemplateCardOnHover(String templateName, bool isSelected) =>
+      templateSelectionContext.add(UpdateCardOnHover(templateName, isSelected));
 }

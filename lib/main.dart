@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resumebuilder/ui/templates/select_templates.dart';
 import 'package:resumebuilder/utils/device_config.dart';
 import 'bloc/common/bloc_provider.dart';
 
@@ -12,11 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DeviceConfig.initialize(context);
     return MultiBlocProvider(
         providers: multiBlocProvider(context),
-        child: Builder(
-            builder: (_) => MaterialApp(home: TemplatePreviewSelector())));
+        child: Builder(builder: (context) {
+          DeviceConfig.initialize(context);
+          return MaterialApp(home: SelectTemplateUI());
+        }));
   }
 }
 

@@ -12,6 +12,9 @@ class TemplateSelectionBloc extends Bloc<Event, State> {
   }
 
   _updateCardOnHover(UpdateCardOnHover event, BlocEmit emit) {
-    try {} catch (error) {}
+    try {
+      final isSelected = event.isSelected;
+      emit(state.copyWith(templateName: isSelected ? event.templateName : ''));
+    } catch (error) {}
   }
 }

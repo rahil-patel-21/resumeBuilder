@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resumebuilder/bloc/common/bloc_events.dart';
+import 'package:resumebuilder/bloc/template_selection/template_selection_bloc.dart';
+import 'package:resumebuilder/bloc/template_selection/template_selection_state.dart';
 import 'package:resumebuilder/ui/custom_widgets/empty_box.dart';
 
 class SelectTemplateUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            child: Column(
-      children: [_appBar(), _body()],
-    )));
+    return BlocBuilder<TemplateSelectionBloc, TemplateSelectionState>(
+      builder: ((context, state) {
+        try {
+          return Scaffold(body: Column(children: [_appBar(), _body(state)]));
+        } catch (error) {
+          return EmptyBox();
+        }
+      }),
+    );
   }
 
   Widget _appBar() {
@@ -39,18 +47,21 @@ class SelectTemplateUI extends StatelessWidget {
     }
   }
 
-  Widget _body() {
+  Widget _body(TemplateSelectionState state) {
     try {
       return Container(
           child: Row(
-        children: [_templates(), _preview()],
+        children: [
+          _templates(state),
+          _preview(),
+        ],
       ));
     } catch (error) {
       return EmptyBox();
     }
   }
 
-  Widget _templates() {
+  Widget _templates(TemplateSelectionState state) {
     try {
       const List<String> templateNames = [
         'Toronto',
@@ -79,24 +90,28 @@ class SelectTemplateUI extends StatelessWidget {
               crossAxisSpacing: 0,
               mainAxisSpacing: 5),
           itemBuilder: (BuildContext context, int index) {
+            bool isSelected = state.templateName == templateNames[index];
             return MouseRegion(
-              onHover: (event) {
-                print(templateNames[index]);
-              },
+              onEnter: (_) => BlocEvent.updateTemplateCardOnHover(
+                  templateNames[index], true),
+              onExit: (_) => BlocEvent.updateTemplateCardOnHover('', false),
               child: Container(
                 margin: EdgeInsets.all(5),
                 decoration: BoxDecoration(color: Colors.transparent),
                 child: Column(
                   children: [
-                    Text(
-                      templateNames[index],
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    Text(templateNames[index],
+                        style: TextStyle(color: Colors.white)),
                     SizedBox(height: 10),
                     Container(
                         height: 175,
                         width: 140,
                         decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 5,
+                                color: isSelected
+                                    ? Colors.blue
+                                    : Colors.transparent),
                             borderRadius: BorderRadius.circular(5),
                             color: Colors.white))
                   ],
@@ -114,10 +129,9 @@ class SelectTemplateUI extends StatelessWidget {
   Widget _preview() {
     try {
       return Container(
-        decoration: BoxDecoration(color: Color(0xFF495162)),
-        width: 1100,
-        height: 800,
-      );
+          decoration: BoxDecoration(color: Color(0xFF495162)),
+          width: 1100,
+          height: 800);
     } catch (error) {
       return EmptyBox();
     }
