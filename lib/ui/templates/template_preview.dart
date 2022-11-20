@@ -90,13 +90,13 @@ class TemplatePreviewUI extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 30),
           Text('Profile',
-              style: TextStyle(fontFamily: AppTheme.fMontMI, fontSize: 22)),
+              style: TextStyle(fontFamily: AppTheme.fNotoSB, fontSize: 22)),
           Container(
             width: 510,
             child: Text(
-              """Experienced Web Developer adept in all stages of advanced web development. Knowledgeable in user interface, testing, and debugging processes. Bringing forth expertise in design, installation, testing and maintenance of web systems. Equipped with a diverse and promising skill-set. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS, Tomcat, and Microsoft SQL Server. Able to effectively self-manage during independent projects, as well as collaborate in a team setting. Experienced Software Developer adept in bringing forth expertise in design, installation, testing and maintenance of software systems.
+              """Experienced full stack developer who started the journey as a fresher flutter developer and quickly explored and adapt the technologies like NodeJS, Python, Etc., Contributing in fintech as a lead developer and managing and helping the team to learn and grow together.
             """,
               textAlign: TextAlign.start,
               style: TextStyle(height: 1.5, fontFamily: AppTheme.fMontMI),
@@ -114,18 +114,31 @@ class TemplatePreviewUI extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 20),
           Text('Employment History',
-              style: TextStyle(fontFamily: AppTheme.fMontMI, fontSize: 22)),
+              style: TextStyle(fontFamily: AppTheme.fNotoSB, fontSize: 22)),
+          SizedBox(height: 5),
           Text('Team Lead, Lenditt Innovations, Ahmedabad',
-              style: TextStyle(fontFamily: AppTheme.fMontMI, fontSize: 16)),
+              style: TextStyle(
+                  fontFamily: AppTheme.fMontMI,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600)),
           Text('OCT 2021 - PRESENT',
-              style: TextStyle(fontFamily: AppTheme.fSairaM, fontSize: 12)),
+              style: TextStyle(
+                  fontFamily: AppTheme.fSairaM,
+                  fontSize: 12,
+                  color: AppTheme.cGrey)),
+          SizedBox(height: 8),
           Container(
             width: 510,
             child: Text(
-              """Experienced Web Developer adept in all stages of advanced web development. Knowledgeable in user interface, testing, and debugging processes. Bringing forth expertise in design, installation, testing and maintenance of web systems. Equipped with a diverse and promising skill-set. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS, Tomcat, and Microsoft SQL Server. Able to effectively self-manage during independent projects, as well as collaborate in a team setting. Experienced Software Developer adept in bringing forth expertise in design, installation, testing and maintenance of software systems.
-            """,
+              """  • Leading a team of frontend, backend team and UI/UX designers
+  • Ensuring team members stays on task and help them if they got stuck
+  • Communicated well with 3rd party tech service providers
+  • Took the initiative for flow changes which helped the business to grow 2x faster
+  • Making sure each member contributes as per organization's expectations else taking necessary actions
+  • Taking initiative before assigning new technology to other members
+  • Always taking accountability for failures of a team""",
               textAlign: TextAlign.start,
               style: TextStyle(height: 1.5, fontFamily: AppTheme.fMontMI),
             ),
