@@ -6,6 +6,7 @@ import 'package:resumebuilder/bloc/template_selection/template_selection_state.d
 import 'package:resumebuilder/globals.dart';
 import 'package:resumebuilder/ui/custom_widgets/empty_box.dart';
 import 'package:resumebuilder/ui/templates/template_preview.dart';
+import 'package:resumebuilder/utils/app_theme.dart';
 import 'package:resumebuilder/utils/size_config.dart';
 
 class SelectTemplateUI extends StatelessWidget {
@@ -42,7 +43,9 @@ class SelectTemplateUI extends StatelessWidget {
                   SizedBox(
                     width: 5,
                   ),
-                  Text('Back to editor', style: TextStyle(color: Colors.white)),
+                  Text('Back to editor',
+                      style: TextStyle(
+                          color: Colors.white, fontFamily: AppTheme.fNotoSB)),
                 ],
               )
             ],
@@ -111,6 +114,10 @@ class SelectTemplateUI extends StatelessWidget {
                         height: 175,
                         width: 140,
                         decoration: BoxDecoration(
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image:
+                                    AssetImage('assets/Images/thumbnail.png')),
                             border: Border.all(
                                 width: 5,
                                 color: isSelected
