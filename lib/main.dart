@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resumebuilder/ui/templates/select_templates.dart';
+import 'package:resumebuilder/ui/themes/theme.dart';
 import 'package:resumebuilder/utils/device_config.dart';
 import 'package:resumebuilder/utils/size_config.dart';
 import 'bloc/common/bloc_provider.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
           child: Builder(builder: (context) {
             DeviceConfig.initialize(context);
             return MaterialApp(
-                home: SelectTemplateUI(), debugShowCheckedModeBanner: false);
+              theme: getAppTheme(),
+                home: SafeArea(child: SelectTemplateUI()), debugShowCheckedModeBanner: false);
           })),
     );
   }

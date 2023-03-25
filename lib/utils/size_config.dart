@@ -66,7 +66,7 @@ class _SizerState extends State<Sizer> {
           SizeConfig.init(constraints, orientation);
           return widget.child;
         },
-      ),
+      )
     );
   }
 }
